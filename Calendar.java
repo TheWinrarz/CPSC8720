@@ -73,32 +73,30 @@ public class Calendar {
     }
 
     //Input:
-    //      Day: LocalDate
+    //      Day: LocalDate representing day associated with note
+    //Output:
+    //      String if given date has associated note, otherwise returns null
     public String getNoteFromDay(LocalDate day)
     {
         return notes.get(day);
     }
 
+    //Input:
+    //      Day: LocalDate representing day associated with note
+    //Output: none
+    //Effects: print note associated with day to System.out
     public void printNoteFromDay(LocalDate day)
     {
         System.out.println(getNoteFromDay(day));
     }
 
-
-    public static void main(String[] args) {
-        Calendar cal = new Calendar();
-        System.out.println(cal.getActiveDay());
-        cal.addNoteToActiveDay("Hello world");
-        cal.printNoteFromDay(cal.getActiveDay());
-
-        cal.advanceCurrentDay(1);
-        System.out.println(cal.getActiveDay());
-        cal.addNoteToActiveDay("Hello world again");
-        cal.printNoteFromDay(cal.getActiveDay());
-
-        cal.returnToToday();
-        System.out.println(cal.getActiveDay());
-        cal.printNoteFromDay(cal.getActiveDay());
+    //Input:
+    //      Day: LocalDate representing day associated with note
+    //Output: none
+    //Effects: removes associated note from day
+    public void removeNoteFromDay(LocalDate day)
+    {
+        notes.remove(day);
     }
 }
 
